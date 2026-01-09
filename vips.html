@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos VIP - HYDRA RP</title>
+    <meta name="description"
+        content="Conheça os planos VIP do servidor HYDRA RP. Bronze, Gold e Diamond com benefícios exclusivos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/3d-effects.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body class="page-vips">
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="header scrolled">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-dragon"></i></span>
+                <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="loja.html" class="nav-link">Loja</a></li>
+                <li><a href="vips.html" class="nav-link active">VIPs</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-cart" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <a href="#" class="btn-discord"><i class="fab fa-discord"></i><span>Discord</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header page-header-vip">
+        <div class="container">
+            <div class="page-header-content">
+                <span class="page-badge"><i class="fas fa-crown"></i> Planos VIP</span>
+                <h1 class="page-title">Escolha seu <span class="gradient-text">Poder</span></h1>
+                <p class="page-subtitle">Benefícios exclusivos para dominar o servidor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Cards Section -->
+    <section class="vip-section-full">
+        <div class="container">
+            <div class="vip-grid-large">
+                <!-- VIP Bronze -->
+                <div class="vip-card-large" data-tier="bronze">
+                    <div class="vip-card-header">
+                        <div class="vip-icon-large"><i class="fas fa-medal"></i></div>
+                        <h2 class="vip-name-large">Bronze</h2>
+                        <p class="vip-tagline">Para quem está começando</p>
+                        <div class="vip-price-large">
+                            <span class="currency">R$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/mês</span>
+                        </div>
+                    </div>
+                    <div class="vip-card-body">
+                        <ul class="vip-benefits-large">
+                            <li><i class="fas fa-check"></i> Tag exclusiva [VIP Bronze]</li>
+                            <li><i class="fas fa-check"></i> 5 garagens extras</li>
+                            <li><i class="fas fa-check"></i> Kit inicial especial</li>
+                            <li><i class="fas fa-check"></i> Prioridade na fila</li>
+                            <li><i class="fas fa-check"></i> R$ 100.000 iniciais</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Carros exclusivos</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Casa grátis</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Acesso antecipado</li>
+                        </ul>
+                    </div>
+                    <div class="vip-card-footer">
+                        <button class="btn btn-vip-large" data-product-id="vip-bronze">
+                            <i class="fas fa-shopping-cart"></i> Assinar Bronze
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VIP Gold -->
+                <div class="vip-card-large featured" data-tier="gold">
+                    <div class="vip-popular-badge">🔥 Mais Popular</div>
+                    <div class="vip-card-header">
+                        <div class="vip-icon-large"><i class="fas fa-crown"></i></div>
+                        <h2 class="vip-name-large">Gold</h2>
+                        <p class="vip-tagline">O equilíbrio perfeito</p>
+                        <div class="vip-price-large">
+                            <span class="currency">R$</span>
+                            <span class="amount">59</span>
+                            <span class="period">/mês</span>
+                        </div>
+                    </div>
+                    <div class="vip-card-body">
+                        <ul class="vip-benefits-large">
+                            <li><i class="fas fa-check"></i> Tudo do Bronze +</li>
+                            <li><i class="fas fa-check"></i> Tag exclusiva [VIP Gold]</li>
+                            <li><i class="fas fa-check"></i> 15 garagens extras</li>
+                            <li><i class="fas fa-check"></i> 3 carros exclusivos</li>
+                            <li><i class="fas fa-check"></i> Casa grátis (média)</li>
+                            <li><i class="fas fa-check"></i> R$ 500.000 iniciais</li>
+                            <li><i class="fas fa-check"></i> Acesso ao chat VIP</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Acesso antecipado</li>
+                        </ul>
+                    </div>
+                    <div class="vip-card-footer">
+                        <button class="btn btn-vip-large btn-vip-featured" data-product-id="vip-gold">
+                            <i class="fas fa-crown"></i> Assinar Gold
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VIP Diamond -->
+                <div class="vip-card-large" data-tier="diamond">
+                    <div class="vip-card-header">
+                        <div class="vip-icon-large"><i class="fas fa-gem"></i></div>
+                        <h2 class="vip-name-large">Diamond</h2>
+                        <p class="vip-tagline">Para os verdadeiros reis</p>
+                        <div class="vip-price-large">
+                            <span class="currency">R$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/mês</span>
+                        </div>
+                    </div>
+                    <div class="vip-card-body">
+                        <ul class="vip-benefits-large">
+                            <li><i class="fas fa-check"></i> Tudo do Gold +</li>
+                            <li><i class="fas fa-check"></i> Tag exclusiva [VIP Diamond]</li>
+                            <li><i class="fas fa-check"></i> Garagens ilimitadas</li>
+                            <li><i class="fas fa-check"></i> Todos os carros VIP</li>
+                            <li><i class="fas fa-check"></i> Mansão exclusiva</li>
+                            <li><i class="fas fa-check"></i> R$ 2.000.000 iniciais</li>
+                            <li><i class="fas fa-check"></i> Acesso antecipado</li>
+                            <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                        </ul>
+                    </div>
+                    <div class="vip-card-footer">
+                        <button class="btn btn-vip-large" data-product-id="vip-diamond">
+                            <i class="fas fa-gem"></i> Assinar Diamond
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-question-circle"></i> Dúvidas</span>
+                <h2 class="section-title">Perguntas <span class="gradient-text">Frequentes</span></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4><i class="fas fa-clock"></i> Quando recebo meu VIP?</h4>
+                    <p>Após a confirmação do pagamento, seu VIP é ativado automaticamente em até 5 minutos!</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-redo"></i> O VIP renova automaticamente?</h4>
+                    <p>Não, você precisa renovar manualmente quando o período acabar. Enviamos um lembrete!</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-arrow-up"></i> Posso fazer upgrade?</h4>
+                    <p>Sim! Você pode fazer upgrade a qualquer momento pagando a diferença.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-undo"></i> Posso pedir reembolso?</h4>
+                    <p>Oferecemos reembolso em até 7 dias após a compra, sem burocracia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-simple">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon"><i class="fas fa-dragon"></i></span>
+                    <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
+                </a>
+                <div class="footer-links-inline">
+                    <a href="index.html">Início</a>
+                    <a href="loja.html">Loja</a>
+                    <a href="vips.html">VIPs</a>
+                    <a href="sobre.html">Sobre</a>
+                </div>
+                <p>&copy; 2026 HYDRA RP. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Seu Carrinho</h3>
+            <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-empty" id="cart-empty">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Seu carrinho está vazio</p>
+        </div>
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="btn btn-checkout" id="checkout-btn">
+                <i class="fas fa-lock"></i> Finalizar Compra
+            </button>
+        </div>
+    </aside>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/3d-effects.js"></script>
+</body>
+
+</html>

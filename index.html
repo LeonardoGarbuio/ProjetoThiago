@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYDRA RP - Loja Oficial</title>
+    <meta name="description"
+        content="Loja oficial do servidor HYDRA RP. Compre VIPs, veículos e itens exclusivos para seu personagem.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/3d-effects.css">
+</head>
+
+<body>
+    <!-- 3D Particles Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-logo">HYDRA</div>
+        </div>
+        <p class="loader-text">Carregando...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-dragon"></i></span>
+                <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Início</a></li>
+                <li><a href="loja.html" class="nav-link">Loja</a></li>
+                <li><a href="vips.html" class="nav-link">VIPs</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-cart" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <a href="#" class="btn-discord">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+        </div>
+        <!-- Real 3D Lamborghini Model -->
+        <div class="hero-3d-car" id="hero-3d-car">
+            <div class="car-loading" id="car-loading">
+                <div class="loading-spinner"></div>
+                <span>Carregando modelo 3D...</span>
+            </div>
+        </div>
+        <div class="hero-content container">
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i>
+                <span>Servidor #1 de Roleplay</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Bem-vindo à</span>
+                <span class="title-main glitch" data-text="HYDRA RP">HYDRA RP</span>
+            </h1>
+            <p class="hero-subtitle">A melhor experiência de roleplay do Brasil. Compre itens exclusivos e domine as
+                ruas da cidade.</p>
+            <div class="hero-buttons">
+                <a href="loja.html" class="btn btn-primary">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Ver Loja</span>
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-play"></i>
+                    <span>Conectar</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="1500">0</span>
+                    <span class="stat-label">Players Online</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="50000">0</span>
+                    <span class="stat-label">Membros</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="99">0</span>
+                    <span class="stat-label">% Uptime</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Role para baixo</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="produtos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-fire"></i> Em destaque</span>
+                <h2 class="section-title">Produtos <span class="gradient-text">Populares</span></h2>
+                <p class="section-subtitle">Os itens mais comprados pelos jogadores</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i>
+                    Todos
+                </button>
+                <button class="filter-btn" data-category="vip">
+                    <i class="fas fa-crown"></i>
+                    VIPs
+                </button>
+                <button class="filter-btn" data-category="veiculo">
+                    <i class="fas fa-car"></i>
+                    Veículos
+                </button>
+                <button class="filter-btn" data-category="item">
+                    <i class="fas fa-box"></i>
+                    Itens
+                </button>
+                <button class="filter-btn" data-category="pacote">
+                    <i class="fas fa-gift"></i>
+                    Pacotes
+                </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Plans Section -->
+    <section class="vip-section" id="vips">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-crown"></i> Planos VIP</span>
+                <h2 class="section-title">Escolha seu <span class="gradient-text">Poder</span></h2>
+                <p class="section-subtitle">Benefícios exclusivos para dominar o servidor</p>
+            </div>
+
+            <div class="vip-grid">
+                <!-- VIP Bronze -->
+                <div class="vip-card" data-tier="bronze">
+                    <div class="vip-header">
+                        <div class="vip-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 class="vip-name">Bronze</h3>
+                        <p class="vip-tagline">Para quem está começando</p>
+                    </div>
+                    <div class="vip-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">29</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="vip-benefits">
+                        <li><i class="fas fa-check"></i> Tag exclusiva no servidor</li>
+                        <li><i class="fas fa-check"></i> 5 garagens extras</li>
+                        <li><i class="fas fa-check"></i> Kit inicial especial</li>
+                        <li><i class="fas fa-check"></i> Prioridade na fila</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Carros exclusivos</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Acesso antecipado</li>
+                    </ul>
+                    <button class="btn btn-vip" data-product-id="vip-bronze">
+                        Assinar Agora
+                    </button>
+                </div>
+
+                <!-- VIP Gold -->
+                <div class="vip-card featured" data-tier="gold">
+                    <div class="vip-badge">Mais Popular</div>
+                    <div class="vip-header">
+                        <div class="vip-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="vip-name">Gold</h3>
+                        <p class="vip-tagline">O equilíbrio perfeito</p>
+                    </div>
+                    <div class="vip-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">59</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="vip-benefits">
+                        <li><i class="fas fa-check"></i> Tudo do Bronze +</li>
+                        <li><i class="fas fa-check"></i> 15 garagens extras</li>
+                        <li><i class="fas fa-check"></i> 3 carros exclusivos</li>
+                        <li><i class="fas fa-check"></i> Casa grátis</li>
+                        <li><i class="fas fa-check"></i> R$ 500k iniciais</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Acesso antecipado</li>
+                    </ul>
+                    <button class="btn btn-vip btn-vip-featured" data-product-id="vip-gold">
+                        Assinar Agora
+                    </button>
+                </div>
+
+                <!-- VIP Diamond -->
+                <div class="vip-card" data-tier="diamond">
+                    <div class="vip-header">
+                        <div class="vip-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 class="vip-name">Diamond</h3>
+                        <p class="vip-tagline">Para os verdadeiros reis</p>
+                    </div>
+                    <div class="vip-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">99</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="vip-benefits">
+                        <li><i class="fas fa-check"></i> Tudo do Gold +</li>
+                        <li><i class="fas fa-check"></i> Garagens ilimitadas</li>
+                        <li><i class="fas fa-check"></i> Todos os carros VIP</li>
+                        <li><i class="fas fa-check"></i> Mansão exclusiva</li>
+                        <li><i class="fas fa-check"></i> R$ 2M iniciais</li>
+                        <li><i class="fas fa-check"></i> Acesso antecipado</li>
+                    </ul>
+                    <button class="btn btn-vip" data-product-id="vip-diamond">
+                        Assinar Agora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-badge"><i class="fas fa-info-circle"></i> Sobre nós</span>
+                    <h2 class="section-title">Por que escolher a <span class="gradient-text">HYDRA RP</span>?</h2>
+                    <p class="about-text">
+                        Somos o servidor #1 de roleplay do Brasil, com uma comunidade ativa de mais de 50.000 membros.
+                        Nossa missão é proporcionar a melhor experiência de RP com scripts exclusivos,
+                        anticheat avançado e suporte 24/7.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Anticheat Avançado</h4>
+                                <p>Proteção total contra cheaters</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Suporte 24/7</h4>
+                                <p>Equipe sempre disponível</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Scripts Exclusivos</h4>
+                                <p>Sistemas únicos no Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-frame">
+                        <div class="frame-glow"></div>
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop"
+                            alt="Gaming Setup" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon"><i class="fas fa-dragon"></i></span>
+                        <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
+                    </a>
+                    <p>A melhor experiência de roleplay do Brasil. Junte-se a milhares de jogadores!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#produtos">Loja</a></li>
+                        <li><a href="#vips">VIPs</a></li>
+                        <li><a href="#">Regras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Reembolso</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-payment">
+                    <h4>Formas de Pagamento</h4>
+                    <div class="payment-methods">
+                        <div class="payment-icon" title="Pix">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg"
+                                alt="Pix">
+                        </div>
+                        <div class="payment-icon" title="Mercado Pago">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                    </div>
+                    <p class="security-badge">
+                        <i class="fas fa-lock"></i>
+                        Pagamento 100% Seguro
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HYDRA RP. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <i class="fas fa-heart"></i> por <strong>Sua Equipe</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Seu Carrinho</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-empty" id="cart-empty">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Seu carrinho está vazio</p>
+            <a href="#produtos" class="btn btn-primary" id="cart-shop-btn">Ver Produtos</a>
+        </div>
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="btn btn-checkout" id="checkout-btn">
+                <i class="fas fa-lock"></i>
+                Finalizar Compra
+            </button>
+        </div>
+    </aside>
+
+    <!-- Notification Toast -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/3d-effects.js"></script>
+</body>
+
+</html>
