@@ -1,7 +1,8 @@
 /* ============================================
-   3D EFFECTS - Minimal
+   3D EFFECTS - Original Premium Design
    ============================================ */
 
+/* Particles Background */
 #particles-canvas {
     position: fixed;
     top: 0;
@@ -10,17 +11,18 @@
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.4;
 }
 
+/* 3D Car Container */
 .hero-3d-car {
     position: absolute;
-    right: 5%;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 500px;
-    height: 400px;
+    width: 600px;
+    height: 500px;
     z-index: 5;
+    pointer-events: none;
 }
 
 .hero-3d-car canvas {
@@ -28,19 +30,84 @@
     height: 100% !important;
 }
 
-.hero-car-image {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+/* Loading Spinner */
+.car-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
+.car-loading.hidden {
+    display: none;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(139, 92, 246, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Ground Glow Effect */
+.ground-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100px;
+    background: radial-gradient(ellipse at center bottom, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Card Hover Effects */
+.product-card,
+.vip-card {
+    transform-style: preserve-3d;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) rotateX(2deg);
+}
+
+/* Cursor Glow */
+.cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    display: none;
+}
+
+/* Responsive */
 @media (max-width: 1200px) {
     .hero-3d-car {
         display: none;
     }
 }
 
-/* Hide glow effects */
-.cursor-glow {
-    display: none;
+@media (max-width: 768px) {
+    .cursor-glow {
+        display: none;
+    }
 }
