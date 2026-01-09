@@ -1,161 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja - HYDRA RP</title>
-    <meta name="description" content="Loja oficial do servidor HYDRA RP. Compre VIPs, veículos e itens exclusivos.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>HYDRA RP | Loja Oficial</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/3d-effects.css">
-    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/holographic.css">
 </head>
 
-<body class="page-loja">
-    <!-- Particles Background -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Header -->
-    <header class="header scrolled">
-        <nav class="nav container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon"><i class="fas fa-dragon"></i></span>
-                <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Início</a></li>
-                <li><a href="loja.html" class="nav-link active">Loja</a></li>
-                <li><a href="vips.html" class="nav-link">VIPs</a></li>
-                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <button class="btn-cart" id="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cart-count">0</span>
-                </button>
-                <a href="#" class="btn-discord">
-                    <i class="fab fa-discord"></i>
-                    <span>Discord</span>
-                </a>
-            </div>
+<body>
+    <!-- Navigation Dock -->
+    <header class="header">
+        <nav class="nav-dock">
+            <a href="index.html" class="logo">HYDRA</a>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="loja.html" class="nav-link active">Loja</a>
+            <a href="vips.html" class="nav-link">VIPs</a>
+            <a href="sobre.html" class="nav-link">Sobre</a>
+            <div class="nav-divider"></div>
+            <button class="btn-icon" id="cart-btn"><i class="fas fa-shopping-bag"></i></button>
         </nav>
     </header>
 
     <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <div class="page-header-content">
-                <span class="page-badge"><i class="fas fa-shopping-bag"></i> Loja Oficial</span>
-                <h1 class="page-title">Nossa <span class="gradient-text">Loja</span></h1>
-                <p class="page-subtitle">Encontre os melhores itens para dominar o servidor</p>
-            </div>
+    <section class="container" style="padding-top: 140px; text-align: center;">
+        <h1 class="hero-title-bg"
+            style="position: relative; font-size: 8vw; -webkit-text-stroke: 1px rgba(255,255,255,0.05);">STORE</h1>
+        <p
+            style="margin-top: -40px; position: relative; z-index: 2; color: #888; text-transform: uppercase; letter-spacing: 0.2em;">
+            Equipamentos & Veículos Exclusivos</p>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="container" style="padding: 60px 40px;">
+        <!-- Filters -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="carros">Veículos</button>
+            <button class="filter-btn" data-filter="vip">Planos VIP</button>
+            <button class="filter-btn" data-filter="dinheiro">Dinheiro</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="products-grid">
+            <!-- Products will be injected by products.js -->
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section">
-        <div class="container">
-            <!-- Category Filter -->
-            <div class="category-filter">
-                <button class="filter-btn active" data-category="all">
-                    <i class="fas fa-th-large"></i> Todos
-                </button>
-                <button class="filter-btn" data-category="vip">
-                    <i class="fas fa-crown"></i> VIPs
-                </button>
-                <button class="filter-btn" data-category="veiculo">
-                    <i class="fas fa-car"></i> Veículos
-                </button>
-                <button class="filter-btn" data-category="item">
-                    <i class="fas fa-box"></i> Itens
-                </button>
-                <button class="filter-btn" data-category="pacote">
-                    <i class="fas fa-gift"></i> Pacotes
-                </button>
-            </div>
-
-            <!-- Products Grid -->
-            <div class="products-grid" id="products-grid">
-                <!-- Products loaded dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Não encontrou o que procura?</h2>
-                <p>Entre em contato conosco no Discord para pedidos especiais!</p>
-                <a href="#" class="btn btn-discord-large">
-                    <i class="fab fa-discord"></i>
-                    Falar no Discord
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-simple">
-                <a href="index.html" class="logo">
-                    <span class="logo-icon"><i class="fas fa-dragon"></i></span>
-                    <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
-                </a>
-                <div class="footer-links-inline">
-                    <a href="index.html">Início</a>
-                    <a href="loja.html">Loja</a>
-                    <a href="vips.html">VIPs</a>
-                    <a href="sobre.html">Sobre</a>
-                </div>
-                <p>&copy; 2026 HYDRA RP. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Cart Sidebar -->
+    <!-- Cart Overlay -->
     <div class="cart-overlay" id="cart-overlay"></div>
-    <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
-            <h3><i class="fas fa-shopping-cart"></i> Seu Carrinho</h3>
+            <h3>Seu Carrinho</h3>
             <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
         </div>
         <div class="cart-items" id="cart-items"></div>
-        <div class="cart-empty" id="cart-empty">
-            <i class="fas fa-shopping-basket"></i>
-            <p>Seu carrinho está vazio</p>
-        </div>
-        <div class="cart-footer" id="cart-footer">
+        <div class="cart-footer hidden" id="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <span class="total-amount" id="cart-total">R$ 0,00</span>
+                <span class="total-amount">R$ 0,00</span>
             </div>
-            <button class="btn btn-checkout" id="checkout-btn">
-                <i class="fas fa-lock"></i> Finalizar Compra
-            </button>
+            <button class="btn-checkout">Finalizar Compra</button>
         </div>
-    </aside>
+    </div>
 
-    <!-- Toast -->
-    <div class="toast-container" id="toast-container"></div>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/products.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/3d-effects.js"></script>
+
 </body>
 
 </html>

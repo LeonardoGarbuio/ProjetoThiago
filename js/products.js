@@ -48,6 +48,16 @@ const PRODUCTS = [
         featured: true
     },
     {
+        id: 'moto-cyber',
+        name: 'Neon Cyber Cycle',
+        category: 'veiculo',
+        description: 'Motocicleta futurista com rodas de luz LED e propulsão elétrica.',
+        price: 89.90,
+        image: 'https://images.unsplash.com/photo-1622185135505-2d795043df6e?w=400&h=300&fit=crop',
+        badge: 'new',
+        featured: true
+    },
+    {
         id: 'car-ferrari',
         name: 'Ferrari 488 GTB',
         category: 'veiculo',
@@ -64,7 +74,7 @@ const PRODUCTS = [
         description: 'Performance alemã. Perfeito para rachas e fugas.',
         price: 89.90,
         image: 'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=400&h=300&fit=crop',
-        badge: 'new',
+        badge: null,
         featured: false
     },
     {
@@ -77,18 +87,18 @@ const PRODUCTS = [
         badge: null,
         featured: false
     },
-    {
-        id: 'moto-hayabusa',
-        name: 'Suzuki Hayabusa',
-        category: 'veiculo',
-        description: 'A moto mais rápida do servidor. Fuja de qualquer perseguição.',
-        price: 69.90,
-        image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=300&fit=crop',
-        badge: null,
-        featured: false
-    },
 
     // Itens
+    {
+        id: 'item-hacker',
+        name: 'Cyber Deck mk.IV',
+        category: 'item',
+        description: 'Interface de hacking avançada. Desbloqueie qualquer porta.',
+        price: 59.90,
+        image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop',
+        badge: 'rare',
+        featured: true
+    },
     {
         id: 'item-armas-pack',
         name: 'Pack de Armas',
@@ -97,6 +107,36 @@ const PRODUCTS = [
         price: 39.90,
         image: 'https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&h=300&fit=crop',
         badge: null,
+        featured: false
+    },
+    {
+        id: 'item-jetpack',
+        name: 'Jetpack Experimental',
+        category: 'item',
+        description: 'Propulsor pessoal para voos curtos. Domine os céus.',
+        price: 199.90,
+        image: 'https://images.unsplash.com/photo-1469037784699-75dcff1cbf75?w=400&h=300&fit=crop',
+        badge: 'new',
+        featured: true
+    },
+    {
+        id: 'aircraft-specter',
+        name: 'Specter Stealth Jet',
+        category: 'veiculo',
+        description: 'Caça invisível ao radar. Domine o espaço aéreo.',
+        price: 499.90,
+        image: 'https://images.unsplash.com/photo-1559416568-18544ed39638?w=400&h=300&fit=crop',
+        badge: 'legendary',
+        featured: true
+    },
+    {
+        id: 'item-nanobots',
+        name: 'Nanobot Medkit',
+        category: 'item',
+        description: 'Cura automática e regeneração progressiva por 24h.',
+        price: 29.90,
+        image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=300&fit=crop',
+        badge: 'tech',
         featured: false
     },
     {
@@ -183,8 +223,97 @@ function formatPrice(price) {
     return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
+// RENDER FUNCTION
+function renderShop(filter = 'todos') {
+    const grid = document.getElementById('products-grid');
+    if (!grid) return;
+
+    let items = PRODUCTS;
+    if (filter !== 'todos') {
+        // Simple mapping: 'carros' -> 'veiculo', 'vip' -> 'vip' etc
+        // logic from previous files implies:
+        if (filter === 'carros') items = items.filter(p => p.category === 'veiculo');
+        else if (filter === 'vip') items = items.filter(p => p.category === 'vip');
+        else if (filter === 'dinheiro') items = items.filter(p => p.category === 'item' && p.name.includes('Dinheiro')); // Heuristic
+        else items = items.filter(p => p.category === filter); // Fallback
+    }
+
+    grid.innerHTML = items.map(product => `
+        <div class="product-card" data-category="${product.category}">
+            ${product.badge ? `<div class="product-badge badge-${product.badge}">${product.badge}</div>` : ''}
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                <div class="product-overlay">
+                    <button class="btn-add-cart" onclick="cart.addItem('${product.id}')">
+                        Adicionar <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    ${product.oldPrice ? `<div class="discount-tag">-${Math.round((1 - product.price / product.oldPrice) * 100)}%</div>` : ''}
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <div class="product-footer">
+                    <div class="price-block">
+                        ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                        <span class="price">${formatPrice(product.price)}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+
 // Export for use in other files
 window.PRODUCTS = PRODUCTS;
 window.getProductById = getProductById;
 window.getProductsByCategory = getProductsByCategory;
 window.formatPrice = formatPrice;
+window.renderShop = renderShop;
+
+// Initialize Tilt Effect after DOM Load (helper)
+document.addEventListener('DOMContentLoaded', () => {
+    // Initial Render
+    renderShop('todos');
+
+    // Filter Listeners (assuming buttons exist)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const filter = e.target.getAttribute('data-filter');
+            renderShop(filter);
+
+            // Visual Active State
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+        });
+    });
+
+    // Wait for grid to be populated
+    document.addEventListener('mousemove', (e) => {
+        const card = e.target.closest('.product-card');
+        if (card) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Calculate center
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Rotate X (up/down) - inverted
+            const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg
+            // Rotate Y (left/right)
+            const rotateY = ((x - centerX) / centerX) * 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        const card = e.target.closest('.product-card');
+        if (card) {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        }
+    });
+});

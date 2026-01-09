@@ -1,209 +1,231 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - HYDRA RP</title>
-    <meta name="description" content="Conheça o servidor HYDRA RP. O melhor servidor de roleplay do Brasil.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>HYDRA RP | Sobre o Servidor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/3d-effects.css">
-    <link rel="stylesheet" href="css/pages.css">
+    <style>
+        /* Specific About Page Styles */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .mission-data {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-row span:first-child {
+            color: #888;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-row span:last-child {
+            color: #fff;
+            font-weight: 700;
+            font-family: var(--font-display);
+        }
+
+        .discord-btn-large {
+            display: block;
+            width: 100%;
+            padding: 24px;
+            background: #5865F2;
+            color: white;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-top: 40px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .discord-btn-large:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(88, 101, 242, 0.4);
+        }
+    </style>
 </head>
 
-<body class="page-sobre">
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Header -->
-    <header class="header scrolled">
-        <nav class="nav container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon"><i class="fas fa-dragon"></i></span>
-                <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Início</a></li>
-                <li><a href="loja.html" class="nav-link">Loja</a></li>
-                <li><a href="vips.html" class="nav-link">VIPs</a></li>
-                <li><a href="sobre.html" class="nav-link active">Sobre</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="btn-cart" id="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cart-count">0</span>
-                </button>
-                <a href="#" class="btn-discord"><i class="fab fa-discord"></i><span>Discord</span></a>
-            </div>
+<body>
+    <header class="header">
+        <nav class="nav-dock">
+            <a href="index.html" class="logo">HYDRA</a>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="loja.html" class="nav-link">Loja</a>
+            <a href="vips.html" class="nav-link">VIPs</a>
+            <a href="sobre.html" class="nav-link active">Sobre</a>
+            <div class="nav-divider"></div>
+            <button class="btn-icon" id="cart-btn"><i class="fas fa-shopping-bag"></i></button>
         </nav>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header page-header-sobre">
-        <div class="container">
-            <div class="page-header-content">
-                <span class="page-badge"><i class="fas fa-info-circle"></i> Sobre Nós</span>
-                <h1 class="page-title">Conheça a <span class="gradient-text">HYDRA RP</span></h1>
-                <p class="page-subtitle">O servidor #1 de roleplay do Brasil</p>
-            </div>
-        </div>
+    <section class="container" style="padding-top: 140px; text-align: center;">
+        <h1 class="hero-title-bg"
+            style="position: relative; font-size: 8vw; -webkit-text-stroke: 1px rgba(255,255,255,0.05);">SERVER</h1>
+        <p
+            style="margin-top: -40px; position: relative; z-index: 2; color: #888; text-transform: uppercase; letter-spacing: 0.2em;">
+            Dados do Servidor & Comunidade</p>
     </section>
 
-    <!-- About Section -->
-    <section class="about-full">
-        <div class="container">
-            <div class="about-hero-grid">
-                <div class="about-hero-content">
-                    <h2>A melhor experiência de <span class="gradient-text">Roleplay</span></h2>
-                    <p class="about-lead">
-                        Fundada em 2023, a HYDRA RP nasceu da paixão por criar a melhor experiência de
-                        roleplay do Brasil. Com uma comunidade ativa de mais de 50.000 membros e
-                        servidores de alta performance, oferecemos o que há de melhor em RP.
-                    </p>
-                    <div class="about-stats-grid">
-                        <div class="about-stat">
-                            <span class="about-stat-number">50K+</span>
-                            <span class="about-stat-label">Membros</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="about-stat-number">99%</span>
-                            <span class="about-stat-label">Uptime</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="about-stat-number">24/7</span>
-                            <span class="about-stat-label">Suporte</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="about-stat-number">100+</span>
-                            <span class="about-stat-label">Scripts</span>
-                        </div>
+    <section class="container" style="padding-bottom: 100px;">
+        <div class="mission-grid">
+            <div class="mission-text">
+                <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 24px; line-height: 1.1;">
+                    IMERSÃO SEM LIMITES.<br><span style="color: var(--neon-blue);">ROLEPLAY SÉRIO.</span></h2>
+                <p style="color: #aaa; line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px;">
+                    O Hydra RP foi fundado com um único propósito: elevar o nível do roleplay brasileiro.
+                    Com uma economia balanceada, corporações ativas e um sistema de facções dinâmico,
+                    oferecemos a experiência definitiva de simulação de vida.
+                </p>
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex: 1; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+                        <i class="fas fa-server"
+                            style="color: var(--neon-purple); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                        <h4 style="font-weight: 700; margin-bottom: 4px;">Host BR</h4>
+                        <p style="font-size: 0.8rem; color: #666;">Ping baixo e estabilidade 24/7</p>
+                    </div>
+                    <div style="flex: 1; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+                        <i class="fas fa-code-branch"
+                            style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 10px;"></i>
+                        <h4 style="font-weight: 700; margin-bottom: 4px;">Scripts Exclusivos</h4>
+                        <p style="font-size: 0.8rem; color: #666;">Sistemas desenvolvidos do zero</p>
                     </div>
                 </div>
-                <div class="about-hero-image">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop"
-                        alt="Gaming Setup">
+            </div>
+
+            <div class="mission-data">
+                <h3
+                    style="font-family: var(--font-display); margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+                    ESTATÍSTICAS ATUAIS</h3>
+
+                <div class="stat-row">
+                    <span>Jogadores Registrados</span>
+                    <span>54,230</span>
                 </div>
+                <div class="stat-row">
+                    <span>Média Diária</span>
+                    <span>1,500+</span>
+                </div>
+                <div class="stat-row">
+                    <span>Staff Ativa</span>
+                    <span>45 Membros</span>
+                </div>
+                <div class="stat-row">
+                    <span>Tempo Online</span>
+                    <span style="color: #4ade80;">99.9% Uptime</span>
+                </div>
+                <div class="stat-row" style="border-bottom: none;">
+                    <span>Versão Atual</span>
+                    <span>v3.5.2 (Season 2)</span>
+                </div>
+
+                <a href="#" class="discord-btn-large"><i class="fab fa-discord"></i> Entrar no Discord</a>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-full">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge"><i class="fas fa-star"></i> Diferenciais</span>
-                <h2 class="section-title">Por que nos <span class="gradient-text">escolher</span>?</h2>
+    <!-- HYDRA COLLECTION SHOWROOM -->
+    <section class="container" style="padding-bottom: 100px;">
+        <div class="showroom-container">
+            <div class="showroom-header">
+                <h2 style="font-family: var(--font-display); font-size: 3rem; text-align: center; margin-bottom: 10px;">
+                    HYDRA <span style="color: var(--neon-purple);">COLLECTION</span>
+                </h2>
+                <p style="text-align: center; color: #888; margin-bottom: 40px;">
+                    Explore nossa frota exclusiva. Personalize e visualize em 360º.
+                </p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Anticheat Avançado</h3>
-                    <p>Sistema de proteção próprio que garante um ambiente justo e sem cheaters em nosso servidor.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i class="fas fa-code"></i></div>
-                    <h3>Scripts Exclusivos</h3>
-                    <p>Desenvolvemos nossos próprios scripts para uma experiência única que você não encontra em outro
-                        lugar.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i class="fas fa-headset"></i></div>
-                    <h3>Suporte 24/7</h3>
-                    <p>Equipe de suporte sempre disponível para ajudar você em qualquer situação, a qualquer hora.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i class="fas fa-users"></i></div>
-                    <h3>Comunidade Ativa</h3>
-                    <p>Mais de 50.000 jogadores ativos criando histórias incríveis todos os dias no servidor.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i class="fas fa-server"></i></div>
-                    <h3>Alta Performance</h3>
-                    <p>Servidores dedicados de última geração para máximo desempenho e mínimo lag.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i class="fas fa-sync-alt"></i></div>
-                    <h3>Atualizações Constantes</h3>
-                    <p>Novos conteúdos, carros, e sistemas adicionados regularmente para manter a experiência.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section cta-join">
-        <div class="container">
-            <div class="cta-content-large">
-                <h2>Pronto para começar sua <span class="gradient-text">jornada</span>?</h2>
-                <p>Entre no nosso Discord, faça seu whitelist e comece a jogar!</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-discord-large">
-                        <i class="fab fa-discord"></i> Entrar no Discord
-                    </a>
-                    <a href="loja.html" class="btn btn-primary">
-                        <i class="fas fa-shopping-bag"></i> Ver Loja
-                    </a>
+            <div class="showroom-viewer-wrapper">
+                <!-- 3D Canvas Container -->
+                <div id="showroom-canvas-container"
+                    style="width: 100%; height: 500px; background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%); border-radius: 20px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                    <div class="showroom-loading"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: var(--font-body);">
+                        <i class="fas fa-circle-notch fa-spin"></i> Loading Assets...
+                    </div>
+                </div>
+
+                <!-- Controls Interface -->
+                <div class="showroom-controls"
+                    style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+
+                    <!-- Color Swatches -->
+                    <div style="display: flex; align-items: center; gap: 30px;">
+                        <button class="edition-nav-btn" id="prev-edition"
+                            style="background: none; border: 1px solid rgba(255,255,255,0.2); color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s;">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <div class="edition-info" style="text-align: center; min-width: 200px;">
+                            <h3 id="edition-name"
+                                style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 5px;">
+                                AVENTADOR SVJ</h3>
+                            <p id="edition-desc" style="color: var(--neon-blue); font-size: 0.9rem;">STOCK EDITION
+                            </p>
+                        </div>
+
+                        <button class="edition-nav-btn" id="next-edition"
+                            style="background: none; border: 1px solid rgba(255,255,255,0.2); color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s;">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-simple">
-                <a href="index.html" class="logo">
-                    <span class="logo-icon"><i class="fas fa-dragon"></i></span>
-                    <span class="logo-text">HYDRA<span class="logo-rp">RP</span></span>
-                </a>
-                <div class="footer-links-inline">
-                    <a href="index.html">Início</a>
-                    <a href="loja.html">Loja</a>
-                    <a href="vips.html">VIPs</a>
-                    <a href="sobre.html">Sobre</a>
+        <!-- Cart Sidebar (Reusable) -->
+        <div class="cart-overlay" id="cart-overlay"></div>
+        <div class="cart-sidebar" id="cart-sidebar">
+            <div class="cart-header">
+                <h3>Seu Carrinho</h3>
+                <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-footer hidden" id="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-amount">R$ 0,00</span>
                 </div>
-                <p>&copy; 2026 HYDRA RP. Todos os direitos reservados.</p>
+                <button class="btn-checkout">Finalizar Compra</button>
             </div>
         </div>
-    </footer>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-overlay" id="cart-overlay"></div>
-    <aside class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h3><i class="fas fa-shopping-cart"></i> Seu Carrinho</h3>
-            <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="cart-items" id="cart-items"></div>
-        <div class="cart-empty" id="cart-empty">
-            <i class="fas fa-shopping-basket"></i>
-            <p>Seu carrinho está vazio</p>
-        </div>
-        <div class="cart-footer" id="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span class="total-amount" id="cart-total">R$ 0,00</span>
-            </div>
-            <button class="btn btn-checkout" id="checkout-btn">
-                <i class="fas fa-lock"></i> Finalizar Compra
-            </button>
-        </div>
-    </aside>
+        <!-- Import Map for Three.js (Required for JSM modules) -->
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+            }
+        }
+    </script>
 
-    <div class="toast-container" id="toast-container"></div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/products.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/3d-effects.js"></script>
+        <script src="js/products.js"></script>
+        <script src="js/cart.js"></script>
+        <script type="module" src="js/showroom.js"></script>
 </body>
 
 </html>
